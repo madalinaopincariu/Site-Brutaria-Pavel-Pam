@@ -1,0 +1,325 @@
+/* Reset default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+form,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Set basic styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #ffed77;
+    color: #ff4800;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #f8ff2e;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* b. Use CSS 2D transform properties */
+.logo {
+    transform: scale(1.2);
+}
+
+/* c. Use gradient background for <header> */
+header {
+    background: linear-gradient(to right, #ff4800, #f6fe01);
+}
+
+
+/* f. Use a style for every <form> element and <input> element */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* d. Use a <footer> at the last element of end of all pages */
+footer {
+    background: linear-gradient(to right, #ff4800, #f6fe01);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Stilizare pentru navbar */
+nav {
+    text-align: center;
+    /* Aliniază elementele în centrul navbar-ului */
+}
+
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffed77;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: #ff4800;
+    /* culoarea textului */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ff4800;
+    background-color: #f8ff2e;
+}
+
+/* Stilizare pentru titlu */
+header h1 {
+    color: #fff;
+    /* culoarea textului */
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Image styling */
+td img {
+    max-width: 300px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.reserve-button {
+    color: #ff4800;
+    background-color: #ffed77;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reserve-button:hover {
+    background-color: #f8ff2e;
+}
+
+/* Stiluri pentru formular */
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Stiluri pentru dropdown */
+#dropdownContainer {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#produseSelect {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#selectedProducts {
+    margin-bottom: 10px;
+}
+
+#selectedProducts div {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+#selectedProducts div button {
+    margin-left: 5px;
+    background-color: #ccc;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#trimiteRezervare {
+    padding: 10px 20px;
+    background-color: #ffed77;
+    color: #ff4800;
+    border: none;
+    cursor: pointer;
+}
+
+#trimiteRezervare:hover {
+    background-color: #f8ff2e;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.image-link img {
+    width: 200px;
+    height: 150px;
+}

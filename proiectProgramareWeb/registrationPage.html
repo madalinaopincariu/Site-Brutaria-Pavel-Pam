@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutaria Pavel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Brutaria Pavel</h1>
+        <nav>
+            <ul>
+                <li><a href="mainPage.html">Acasa</a></li>
+                <li><a href="aboutPage.html">Despre firma</a></li>
+                <li><a href="contactPage.html">Contact</a></li>
+                <li><a href="loginPage.html">Autentificare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Inregistrare</h1>
+
+        <form action="register.php" method="POST" onsubmit="return validateForm()" novalidate>
+            <label for="username">Nume utilizator:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="username-validation"></span> <!-- Element pentru indicatorul de validare -->
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span id="email-validation"></span> <!-- Element pentru indicatorul de validare -->
+            <br>
+            <label for="password">Parola:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="password-validation"></span> <!-- Element pentru indicatorul de validare -->
+            <br>
+            <button type="submit">Inregistrare</button>
+            <div id="error-messages"></div> <!-- Element pentru afișarea mesajelor de eroare -->
+        </form>
+
+        <script>
+            // Funcție pentru a valida formularul
+            function validateForm() {
+                var username = document.getElementById("username").value;
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                var errorMessages = [];
+
+                // Validare username
+                var isValidUsername = validateUsername(username);
+                updateValidationIndicator("username-validation", isValidUsername);
+                if (!isValidUsername) {
+                    errorMessages.push("Numele trebuie să conțină cel puțin 3 litere.<br>");
+                }
+
+                // Validare email
+                var isValidEmail = validateEmail(email);
+                updateValidationIndicator("email-validation", isValidEmail);
+                if (!isValidEmail) {
+                    errorMessages.push("Adresa de email trebuie să conțină caracterul '@'.<br>");
+                }
+
+                // Validare parolă
+                var isValidPassword = validatePassword(password);
+                updateValidationIndicator("password-validation", isValidPassword);
+                if (!isValidPassword) {
+                    errorMessages.push("Parola trebuie să aibă cel puțin 8 caractere.<br>");
+                }
+
+                var errorDiv = document.getElementById("error-messages");
+                errorDiv.innerHTML = ""; // Curățăm mesajele de eroare anterioare
+                if (errorMessages.length > 0) {
+                    errorMessages.forEach(function (message) {
+                        var p = document.createElement("p");
+                        p.innerHTML = message; // Folosim innerHTML pentru a interpreta etichetele HTML în mesaje
+                        errorDiv.appendChild(p);
+                    });
+                    // Dacă există erori, nu trimitem formularul
+                    return false;
+                } else {
+                    // Verificăm dacă toate câmpurile sunt valide
+                    var isFormValid = isValidUsername && isValidEmail && isValidPassword;
+                    return isFormValid;
+                }
+            }
+
+            // Funcție pentru a valida numele de utilizator
+            function validateUsername(username) {
+                // Verificăm dacă numele de utilizator are o lungime minimă, de exemplu
+                return username.length >= 3; // Exemplu de validare simplă
+            }
+
+            // Funcție pentru a valida adresa de email
+            function validateEmail(email) {
+                // Folosim o expresie regulată pentru a verifica formatul adresei de email
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Funcție pentru a valida parola
+            function validatePassword(password) {
+                // Adăugăm aici regulile pentru validarea parolei, de exemplu, o lungime minimă, caractere speciale, litere mari și mici, cifre etc.
+                return password.length >= 8; // Exemplu de validare simplă: minim 8 caractere
+            }
+
+            // Funcție pentru a actualiza indicatorul de validare vizual
+            function updateValidationIndicator(elementId, isValid) {
+                var validationSpan = document.getElementById(elementId);
+                validationSpan.textContent = isValid ? "✓" : "✗";
+                validationSpan.style.color = isValid ? "green" : "red";
+            }
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 S.C. PAVEL PAM S.R.L.</p>
+    </footer>
+</body>
+
+</html>

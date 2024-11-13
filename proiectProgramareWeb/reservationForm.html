@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutaria Pavel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Brutaria Pavel</h1>
+        <nav>
+            <ul>
+                <li><a href="mainPage.html">Acasa</a></li>
+                <li><a href="aboutPage.html">Despre firma</a></li>
+                <li><a href="contactPage.html">Contact</a></li>
+                <li><a href="loginPage.html">Autentificare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content">
+            <h1>Rezervare produse</h1>
+            <p>Nu facem livrări, doar în cazul comenzilor mari. Puteți rezerva produsele dorite, apoi să le ridicați
+                de la sediul nostru din Aleea Parc 15, Sebeș, Alba, România</p>
+
+            <form id="rezervareForm" novalidate>
+                <label for="nume">Nume:</label><br>
+                <input type="text" id="nume" name="nume" required><br>
+
+                <label for="telefon">Telefon:</label><br>
+                <input type="tel" id="telefon" name="telefon" required><br>
+
+                <label for="pickup-date">Data ridicării:</label>
+                <input type="date" id="pickup-date" name="pickup-date" required>
+
+                <label for="ora">Ora de ridicare:</label><br>
+                <input type="time" id="ora" name="ora" required><br>
+
+                <label for="produse">Produse rezervate:</label><br>
+                <div id="dropdownContainer">
+                    <input type="text" id="searchInput" oninput="filterOptions()" placeholder="Caută produse"><br>
+                    <select id="produseSelect" style="display: none;" multiple required>
+                        <option value="paine1,4">Paine alba 1,4 kg</option>
+                        <option value="paine-seminte">Paine cu seminte</option>
+                        <option value="colac">Colac</option>
+                        <option value="chifla">Chifla</option>
+                    </select><br>
+                </div>
+                <div id="selectedProducts"></div>
+
+                <label for="cantitati">Cantitate pentru fiecare produs:</label><br>
+                <textarea id="cantitati" name="cantitati" rows="4" cols="50" required></textarea><br>
+
+                <input type="button" id="trimiteRezervare" value="Trimite rezervarea">
+            </form>
+
+            <div id="rezultat"></div>
+
+            <script>
+                function filterOptions() {
+                    var input, filter, select, options, option, i;
+                    input = document.getElementById("searchInput");
+                    filter = input.value.toUpperCase();
+                    select = document.getElementById("produseSelect");
+                    options = select.getElementsByTagName("option");
+                    for (i = 0; i < options.length; i++) {
+                        option = options[i];
+                        if (option.innerHTML.toUpperCase().indexOf(filter) > -1 && !option.hasAttribute('disabled')) {
+                            option.style.display = "";
+                        } else {
+                            option.style.display = "none";
+                        }
+                    }
+                    select.style.display = "block";
+                }
+
+                document.getElementById("produseSelect").addEventListener("change", function () {
+                    var select = document.getElementById("produseSelect");
+                    var selectedDiv = document.getElementById("selectedProducts");
+                    var existingProducts = selectedDiv.innerHTML;
+
+                    for (var i = 0; i < select.options.length; i++) {
+                        if (select.options[i].selected) {
+                            var productName = select.options[i].text;
+                            var productValue = select.options[i].value;
+                            var productElement = document.createElement("div");
+                            productElement.textContent = productName;
+                            var closeButton = document.createElement("button");
+                            closeButton.textContent = "x";
+                            closeButton.setAttribute("data-type", "remove-button");
+                            closeButton.onclick = function () {
+                                removeProduct(this.parentElement);
+                            };
+                            productElement.appendChild(closeButton);
+                            existingProducts += productElement.outerHTML;
+                            select.options[i].setAttribute('disabled', true);
+                        }
+                    }
+                    selectedDiv.innerHTML = existingProducts;
+                });
+
+                function removeProduct(productDiv) {
+                    productDiv.remove();
+                }
+
+                document.getElementById("trimiteRezervare").addEventListener("click", function (event) {
+                    event.preventDefault();
+                    var cantitati = document.getElementById("cantitati").value.split("\n");
+                    var produseSelectate = document.getElementById("produseSelect");
+                    var pretTotal = 0;
+
+                    for (var i = 0; i < cantitati.length; i++) {
+                        var cantitate = parseInt(cantitati[i]);
+                        var pretProdus = parseFloat(produseSelectate.options[produseSelectate.selectedIndex].text.split("-")[1]);
+
+                        pretTotal += cantitate * pretProdus;
+                    }
+                    document.getElementById("rezultat").innerText = "Pret total: " + pretTotal.toFixed(2) + " lei. Rezervare trimisă, te așteptăm la brutărie să o ridici!";
+                });
+            </script>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 S.C. PAVEL PAM S.R.L.</p>
+    </footer>
+</body>
+
+</html>

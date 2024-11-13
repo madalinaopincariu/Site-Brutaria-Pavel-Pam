@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutaria Pavel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Brutaria Pavel</h1>
+        <nav>
+            <ul>
+                <li><a href="mainPage.html">Acasa</a></li>
+                <li><a href="aboutPage.html">Despre firma</a></li>
+                <li><a href="contactPage.html">Contact</a></li>
+                <li><a href="loginPage.html">Autentificare</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Produs</th>
+                    <th onclick="sortTable(1)">Gramaj</th>
+                    <th onclick="sortTable(2)">Pret</th>
+                    <th>Imagine</th>
+                    <th>Rezerva</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Paine alba mare</td>
+                    <td>1400 g</td>
+                    <td>9 ron</td>
+                    <td><a href="#" class="image-link" onclick="openModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\paine1,4.jpeg"
+                                alt="Description of the image">
+                        </a>
+                    </td>
+                    <td rowspan="15"><a class="reserve-button" href="reservationForm.html">Rezerva</a></td>
+                </tr>
+
+                <tr>
+                    <td>Paine alba mica</td>
+                    <td>1100 g</td>
+                    <td>7,5 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Pictures\poze samsung a3\a.png" alt="Description of the image">
+                        </a></td>
+                </tr>
+                <tr>
+                    <td>Paine alba crestata</td>
+                    <td>1000 g</td>
+                    <td>6,5 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\paine_crestata.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Franzela alba mare</td>
+                    <td>800 g</td>
+                    <td>5,5 ron</td>
+                    <td>
+                        <a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\franzela_mare.jpeg"
+                                alt="Description of the image">
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Franzela alba mica</td>
+                    <td>500 g</td>
+                    <td>4 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\franzela_mica.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Franzela integrala cu seminte</td>
+                    <td>400 g</td>
+                    <td>4,2 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\paine_cu_seminte.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Paine neagra</td>
+                    <td>900 g</td>
+                    <td>6 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\paine_neagra.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Franzela alba "la metru"</td>
+                    <td>2000 g</td>
+                    <td>13 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\paine_la_metru.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Paine alba</td>
+                    <td>3000 g</td>
+                    <td>17 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Pictures\poze samsung a3\a.png" alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Baton/Corn</td>
+                    <td>100 g</td>
+                    <td>1,5 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\baton.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Chifla</td>
+                    <td>100 g</td>
+                    <td>1,5 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Pictures\poze samsung a3\a.png" alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Sarata</td>
+                    <td>100 g</td>
+                    <td>1,5 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Desktop\3.2\Programare Web\sarata.jpeg"
+                                alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Colac de inmormantare</td>
+                    <!--*la acest produs comanda se face cu cateva zile in avans*-->
+                    <td>200 g</td>
+                    <td>2,5 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Pictures\poze samsung a3\a.png" alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Parastas</td> <!--*la acest produs comanda se face cu cateva zile in avans*-->
+                    <td>2000 g</td>
+                    <td>25 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Pictures\poze samsung a3\a.png" alt="Description of the image">
+                        </a></td>
+                </tr>
+
+                <tr>
+                    <td>Prescura</td> <!--*la acest produs comanda se face cu cateva zile in avans*-->
+                    <td>500 g</td>
+                    <td>4 ron</td>
+                    <td><a href="#" class="image-link" onclick="showImageModal(this)">
+                            <img src="C:\Users\ASUS\Pictures\poze samsung a3\a.png" alt="Description of the image">
+                        </a></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+
+        <script>
+            // Funcție pentru deschiderea modalului cu imaginea selectată
+            function openModal(imageSrc) {
+                var modal = document.getElementById("imageModal");
+                var modalImg = document.getElementById("modalImage");
+                modal.style.display = "block";
+                modalImg.src = imageSrc;
+            }
+
+            // Funcție pentru închiderea modalului
+            function closeModal() {
+                var modal = document.getElementById("imageModal");
+                modal.style.display = "none";
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const table = document.getElementById('productTable');
+                const searchInput = document.getElementById('searchInput');
+
+                // Adăugați un ascultător de eveniment pentru inputul de căutare
+                searchInput.addEventListener('input', function () {
+                    searchTable(searchInput.value.trim().toLowerCase());
+                });
+
+                // Funcție pentru căutarea în tabel
+                function searchTable(keyword) {
+                    const rows = table.querySelectorAll('tbody tr');
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        let found = false;
+                        cells.forEach(cell => {
+                            if (cell.textContent.toLowerCase().includes(keyword)) {
+                                found = true;
+                            }
+                        });
+                        row.style.display = found ? '' : 'none';
+                    });
+                }
+
+                // Adăugați ascultători de eveniment pentru sortare când este apăsată antetul coloanei
+                const headers = table.querySelectorAll('th');
+                headers.forEach((header, index) => {
+                    header.addEventListener('click', () => sortTable(index));
+                });
+
+                // Adăugați ascultători de eveniment pentru imagini
+                const images = table.querySelectorAll('img');
+                images.forEach((image) => {
+                    image.addEventListener('mousedown', () => openModal(image.src));
+                });
+            });
+
+            // Funcție pentru sortarea tabelului după coloană
+            function sortTable(columnIndex) {
+                const table = document.getElementById('productTable');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                rows.sort((a, b) => {
+                    const cellA = a.querySelectorAll('td')[columnIndex].textContent.trim();
+                    const cellB = b.querySelectorAll('td')[columnIndex].textContent.trim();
+
+                    // Convertiți în numere pentru coloanele "Gramaj" și "Pret"
+                    if (columnIndex === 1 || columnIndex === 2) {
+                        return parseFloat(cellA.replace(',', '.')) - parseFloat(cellB.replace(',', '.'));
+                    } else {
+                        return cellA.localeCompare(cellB);
+                    }
+                });
+
+                tbody.innerHTML = '';
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+        </script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 S.C. PAVEL PAM S.R.L.</p>
+    </footer>
+
+</body>
+
+</html>
